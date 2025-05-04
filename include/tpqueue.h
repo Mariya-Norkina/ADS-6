@@ -5,14 +5,13 @@
 
 template<typename T>
 class TPQueue {
-
-public: 
+ public:
 void push(const T& element) {
 Noda* newNoda = new Noda(element);
 if (element.prior > head->data.prior || !head) {
             newNoda->next = head;
 head = newNoda;
-}else {
+} else {
 Noda* current = head;
 while (current->next && current->next->data.prior >= element.prior) {
 current = current->next;
@@ -20,7 +19,7 @@ current = current->next;
 newNoda->next = current->next;
 current->next = newNoda;
 }
-} 
+}
 T pop() {
 if (!head)
 throw std::out_of_range("Queue is empty!");
@@ -42,8 +41,7 @@ bool empty() const {
 return head == nullptr;
 }
 
-private: 
-
+ private:
 struct Noda {
 T data;
 Noda* next;
