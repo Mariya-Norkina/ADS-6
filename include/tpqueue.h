@@ -8,7 +8,7 @@ class TPQueue {
  public:
 void push(const T& element) {
 Noda* newNoda = new Noda(element);
-if (!head || element.prior > head->data.prior) {
+if (!head || item.prior > head->data.prior) {
             newNoda->next = head;
 head = newNoda;
 } else {
